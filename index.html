@@ -104,6 +104,45 @@ section .head h2{background:linear-gradient(100deg,#f5f2ed 0%,#c7b59a 48%,#f5f2e
 .reveal-ready{filter:blur(2px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1),filter .75s ease}
 @media(prefers-reduced-motion:reduce){.hero:after,.monogram{animation:none!important}}
 
+
+/* Name rendering fix: keep GUPTA fully readable across browsers */
+.hero-name{display:block;max-width:100%;overflow:visible;word-break:normal;overflow-wrap:normal}
+.hero-name .name-line{width:max-content;max-width:100%;white-space:nowrap;overflow:visible}
+.hero-name .name-accent{background:none!important;background-image:none!important;color:#c7b59a!important;-webkit-text-fill-color:#c7b59a!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;animation:nameReveal .95s .18s cubic-bezier(.16,1,.3,1) both!important;text-shadow:none}
+.hero-name .name-dot{color:#c7b59a!important;-webkit-text-fill-color:#c7b59a!important}
+@media(max-width:620px){.hero-name{font-size:clamp(58px,15vw,94px);letter-spacing:-.065em}.hero-name .name-line{max-width:100%}}
+
+
+/* FINAL FIX: render the full second name line as normal solid text */
+h1.hero-name .name-line.name-accent,
+h1.hero-name .name-line.name-accent *,
+.hero-name .name-accent {
+  display: block !important;
+  background: transparent !important;
+  background-image: none !important;
+  background-size: auto !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: #d6c4aa !important;
+  -webkit-text-fill-color: #d6c4aa !important;
+  text-shadow: none !important;
+  filter: none !important;
+  opacity: 1;
+}
+h1.hero-name .name-line.name-accent {
+  width: max-content;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: visible;
+  animation: nameReveal .95s .18s cubic-bezier(.16,1,.3,1) both !important;
+}
+.hero-name .name-dot {
+  display: inline !important;
+  background: transparent !important;
+  color: #d6c4aa !important;
+  -webkit-text-fill-color: #d6c4aa !important;
+}
+
 </style>
 </head>
 <body>
